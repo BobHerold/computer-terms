@@ -1,6 +1,7 @@
 # Computer Terms
 
 This was created for my third Milestone Project as a student of the Code Institute's (https://codeinstitute.net/) Full Stack Software Developer course.
+It is directly based on the Task-Manager application that we built as a mini project from the Data Centric module from the Code Institute.
 
 ## UX
 
