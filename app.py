@@ -1,7 +1,8 @@
 import os
 from flask import (
-    Flask, flash, render_template, redirect, request, session, url_for)
-from flask_pymongo import flask_pymongo
+    Flask, flash, render_template, redirect,
+    request, session, url_for)
+from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 
@@ -21,11 +22,13 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-def hello():
-    return "Hello World ... again!"
+@app.route("/get_terms")
+def get_terms():
+    terms = mongo.db.terms.find()
+    return render_template("terms.html", terms=terms)
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-             port=int(os.environ.get("PORT")),
-             debug=True)
+        port=int(os.environ.get("PORT")),
+        debug=True)

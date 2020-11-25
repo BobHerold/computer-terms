@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Terms</title>
+</head>
+<body>
+    {% for term in terms %}
+        {{ terms.term }}<br>
+        {{ terms.definition }}<br>
+    {% endfor %}
+</body>
+</html>
