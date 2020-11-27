@@ -12,6 +12,7 @@ It is directly based on the Task-Manager application that we built as a mini pro
 ### Features Left to Implement 
 
 ## Technologies Used
+    Materialze - https://materializecss.com/
 
 ## Testing
 
