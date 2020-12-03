@@ -22,12 +22,20 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_terms")
 def get_terms():
-    terms = mongo.db.terms.find()
+    terms = mongo.db.terms.find().sort("term", 1)
     return render_template("terms.html", terms=terms)
 
 
-@app.route("/add_term")
+@app.route("/add_term", methods=["GET", "POST"])
 def add_term():
+    if request.method == "POST":
+        term = {
+            "term": request.form.get("term"),
+            "definition": request.form.get("definition")
+        }
+        mongo.db.terms.insert_one(term)
+        flash("Term Successfully Added")
+        return redirect(url_for("get_terms"))
     return render_template("add_term.html")
 
 
