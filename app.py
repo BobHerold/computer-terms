@@ -26,6 +26,13 @@ def get_terms():
     return render_template("terms.html", terms=terms)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    terms = mongo.db.terms.find({"$text": {"$search": query}})
+    return render_template("terms.html", terms=terms)
+
+
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
     if request.method == "POST":
@@ -37,6 +44,11 @@ def add_term():
         flash("Term Successfully Added")
         return redirect(url_for("get_terms"))
     return render_template("add_term.html")
+
+
+@app.route("/edit_term", methods=["GET", "POST"])
+def edit_term():
+    return render_template("edit_term.html")
 
 
 if __name__ == "__main__":

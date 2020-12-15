@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="light-blue-text text-darken-4 center-align">Edit Term</h3>
+
+<div class="row card-panel grey lighten-3">
+	<form class="col s12" method="POST" action="{{ url_for('edit_term') }}">
+        <!-- term name -->
+		<div class="row">
+			<div class="input-field col s12">
+				<i class="material-icons prefix light-blue-text text-darken-4">edit</i>
+				<input id="term" name="term" minlength="2" maxlength="35"
+                     type="text" class="validate" required>
+				<label for="term">Term</label>
+			</div>
+		</div>
+        <!-- term definition -->
+        <div class="row">    
+			<div class="input-field col s12">
+				<i class="material-icons prefix light-blue-text text-darken-4">format_align_left</i>
+                <textarea id="definition" name="definition" class="materialize-textarea-validate" required></textarea>
+                <label for="definition">Definition</label>
+			</div>
+		</div>
+        <!-- submit button -->
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="btn waves-effect waves-light" type="submit">Edit Term
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+	</form>
+</div>
+
+{% endblock %}
