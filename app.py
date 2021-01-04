@@ -42,7 +42,7 @@ def add_term():
         }
         mongo.db.terms.insert_one(term)
         flash("Term Successfully Added")
-        return redirect(url_for("get_terms"))
+        #return redirect(url_for("get_terms"))
     return render_template("add_term.html")
 
 
