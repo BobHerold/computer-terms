@@ -10,7 +10,7 @@
 			<div class="input-field col s12">
 				<i class="material-icons prefix light-blue-text text-darken-4">edit</i>
 				<input id="term" name="term" minlength="2" maxlength="35"
-                     type="text" class="validate" required>
+                     type="text" class="validate" value="{{ term.term }}" required>
 				<label for="term">Term</label>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
         <div class="row">    
 			<div class="input-field col s12">
 				<i class="material-icons prefix light-blue-text text-darken-4">format_align_left</i>
-                <textarea id="definition" name="definition" class="materialize-textarea-validate" required></textarea>
+                <textarea id="definition" name="definition" class="materialize-textarea-validate" required>{{ term.definition }}</textarea>
                 <label for="definition">Definition</label>
 			</div>
 		</div>
